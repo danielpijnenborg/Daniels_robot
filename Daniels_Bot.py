@@ -1,5 +1,5 @@
 import random
-from .bot_control import Move
+from ..bot_control import Move
 
 class Daniels_Bot:
     def get_name(self):
