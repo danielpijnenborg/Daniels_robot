@@ -1,12 +1,12 @@
 import random
 from .bot_control import Move
 
-class TestBot1:
+class Daniels_Bot:
     def get_name(self):
         return "Picasso"
 
     def get_contributor(self):
-        return "Daniel"
+        return "Daniel Pijnenborg"
         
     def get_bot_score (self,grid,enemy):
         l = grid.shape[0]
