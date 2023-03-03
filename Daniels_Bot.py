@@ -29,7 +29,7 @@ class Daniels_Bot:
         if tile == 0 : return 0.10*l*l         # take empty tile
         elif tile == id: return 1              # take own tile with risk of two bots result in 0
         elif (id - tile) % 3 == 2 : return self.get_bot_score(grid, tile) # take tile from other
-        elif (id - tile) % 3 == 1 : return 0.5 * self.get_bot_score(grid, tile) # clear tile from other
+        elif (id - tile) % 3 == 1 : return 3 # clear tile from other
         else : return 2                        # goto other without take with chance of two bots result in 0
 
     def determine_next_move(self, grid, enemies, game_info):
