@@ -2,13 +2,19 @@ import random
 from ..bot_control import Move
 
 class Daniels_Bot:
-     def get_name(self):
+    def get_name(self):
         return "Picasso"
 
     def get_contributor(self):
         return "Daniel"
+     
+    def __init__(self):
+       self.last_tile_x = -1
+       self.last_tile_y = -1
         
     def enemy_on_tile (self, enemies, x,y):
+        if self.last_tile_x == x and self.last_tile_y == y:
+          return 0 # don't go back
         for e in enemies:
             xe = e['position'][0]
             ye = e['position'][1]
@@ -69,7 +75,9 @@ class Daniels_Bot:
                 max_move+= [Move.LEFT]
             if score > max_score:
                 max_move = [Move.LEFT]
-                max_score = score       
-
+                max_score = score     
+               
+        self.last_tile_x = self.position[0]
+        self.last_tile_y = self.position[1]
         # Pick one of the possible moves randomly to reduce getting stuck in a loop
         return max_move[random.randint(0, len(max_move) - 1)]
